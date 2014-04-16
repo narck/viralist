@@ -4,7 +4,7 @@ class Visit < ActiveRecord::Base
 
 
 	def days_since_last
-
+		DateTime.now.mjd - visitdate.mjd
 	end
 
 end

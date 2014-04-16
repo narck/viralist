@@ -2,13 +2,16 @@
 
 <p>
   <strong>Visitation date:</strong>
-  <%= @visit.visitdate %>
+  <%= @visit.visitdate %>, <%= @visit.days_since_last %>  days ago
 </p>
+
 
 <p>
   <strong>User:</strong>
   <%= @visit.user.realname %>
 </p>
+
+
 
 <p>
   <strong>Store:</strong>
