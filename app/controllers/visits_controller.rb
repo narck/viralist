@@ -10,10 +10,12 @@ class VisitsController < ApplicationController
   # GET /visits/1
   # GET /visits/1.json
   def show
+
   end
 
   # GET /visits/new
   def new
+    @stores = Store.all
     @visit = Visit.new
   end
 
@@ -24,8 +26,10 @@ class VisitsController < ApplicationController
   # POST /visits
   # POST /visits.json
   def create
+    
     @visit = Visit.new(visit_params)
 
+    print @stores
     respond_to do |format|
       if @visit.save
         format.html { redirect_to @visit, notice: 'Visit was successfully created.' }

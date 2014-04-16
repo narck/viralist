@@ -14,6 +14,8 @@ class StoresController < ApplicationController
 
   # GET /stores/new
   def new
+    @contacts = Contact.all
+    @companies = Company.all
     @store = Store.new
   end
 

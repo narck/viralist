@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th>Visitdate</th>
-      <th>Note</th>
+      
       <th>User</th>
       <th>Store</th>
       <th></th>
@@ -17,9 +17,9 @@
     <% @visits.each do |visit| %>
       <tr>
         <td><%= visit.visitdate %></td>
-        <td><%= visit.note %></td>
-        <td><%= visit.user_id %></td>
-        <td><%= visit.store_id %></td>
+        
+        <td><%= visit.user.realname %></td>
+        <td><%= visit.store.name %></td>
         <td><%= link_to 'Show', visit %></td>
         <td><%= link_to 'Edit', edit_visit_path(visit) %></td>
         <td><%= link_to 'Destroy', visit, method: :delete, data: { confirm: 'Are you sure?' } %></td>

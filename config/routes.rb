@@ -1,6 +1,6 @@
 Viralist::Application.routes.draw do
   
-  root 'visits#list'
+  root 'visits#index'
   resources :users
 
   resources :contacts
