@@ -4,7 +4,6 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Company</th>
       <th>Contact</th>
       <th></th>
       <th></th>
@@ -15,8 +14,7 @@
   <tbody>
     <% @stores.each do |store| %>
       <tr>
-        <td><%= store.name %></td>
-        <td><%= store.company_id %></td>
+        <td><%= store.to_s %></td>
         <td><%= store.contact_id %></td>
         <td><%= link_to 'Show', store %></td>
         <td><%= link_to 'Edit', edit_store_path(store) %></td>

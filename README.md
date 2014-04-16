@@ -1,11 +1,10 @@
 viralist
 ========
 
-Rails-app to keep track of visitations
+**viralist** keeps track of your visitations. 
 
-MODELS
-Contact
-Company
-Visitation
-User
-
+Notable features:
+========
+* Visitation tracking
+* AngularJS dashboard
+* Mailer

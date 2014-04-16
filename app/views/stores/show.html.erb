@@ -2,7 +2,7 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @store.name %>
+  <%= @store.to_s %>
 </p>
 
 <p>
@@ -10,7 +10,9 @@
   <%= @store.company_id %>
 </p>
 <p><strong>Last visited:</strong>
-	<%= @store.last_visited %> days ago
+	<%= @store.visits.empty? ? "No visitations yet" : @store.last_visited +  "days ago"%>
+	
+	
 </p>
 <p>
   <strong>Contact:</strong>
