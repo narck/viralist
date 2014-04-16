@@ -10,7 +10,7 @@
   <%= @store.company_id %>
 </p>
 <p><strong>Last visited:</strong>
-	<%= @store.visits.empty? ? "No visitations yet" : @store.last_visited +  "days ago"%>
+	<%= @store.visits.empty? ? "No visitations yet" : " #{@store.last_visited} #{"day".pluralize(@store.last_visited)} ago"%>
 	
 	
 </p>

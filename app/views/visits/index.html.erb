@@ -18,7 +18,7 @@
       <tr>
         <td><%= visit.visitdate %></td>
         
-        <td><%= visit.user.realname %></td>
+        <td><%= visit.user.to_s %></td>
         <td><%= visit.store.name %></td>
         <td><%= link_to 'Show', visit %></td>
         <td><%= link_to 'Edit', edit_visit_path(visit) %></td>

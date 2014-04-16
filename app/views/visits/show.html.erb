@@ -8,14 +8,14 @@
 
 <p>
   <strong>User:</strong>
-  <%= @visit.user.realname %>
+  <%= @visit.user.to_s %>
 </p>
 
 
 
 <p>
   <strong>Store:</strong>
-  <%= @visit.store.company.name + ' ' + @visit.store.name %>
+  <%= @visit.store.to_s %>
   <%= %>
 </p>
 

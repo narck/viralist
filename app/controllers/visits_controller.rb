@@ -21,6 +21,8 @@ class VisitsController < ApplicationController
 
   # GET /visits/1/edit
   def edit
+    @stores = Store.all
+    @visit = Visit.new
   end
 
   # POST /visits

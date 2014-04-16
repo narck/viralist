@@ -6,6 +6,8 @@ group :development do
   gem 'rails_layout'
 end
 
+gem 'whenever', :require => false
+
 group :test do
   gem 'rspec-rails', '~> 2.14.1'
   #gem 'factory_girl_rails'
