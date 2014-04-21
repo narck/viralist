@@ -5,12 +5,21 @@ class VisitsController < ApplicationController
   # GET /visits.json
   def index
     @visits = Visit.all
+
+    order = params[:order] || 'visitdate'
+
+    case order
+      when 'store' then @visits.sort_by!{ |v| v.store.name }
+      when 'visitdate' then @visits.sort_by!{ |v| v.user.realname}
+      #when 'user' then @visits.sort_by!{ |b| b.user.name }
+    end
+  
   end
 
   # GET /visits/1
   # GET /visits/1.json
   def show
-
+    
   end
 
   # GET /visits/new
