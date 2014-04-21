@@ -37,7 +37,7 @@
 
     <div ng-controller="VisitsController">
 
-      <table class="table table-hover" style="">
+      <table class="table table-hover">
         <thead>
         <th> date </th>
         <th> user </th>
@@ -45,8 +45,8 @@
         <th> days since visited </th>
         
         </thead>
-        <tr ng-repeat="visit in visits| orderBy:order | filter:searchText">
-            <td>{{visit.visitdate}}</td>
+        <tr ng-repeat="visit in visits| orderBy:order | filter:searchText | limitTo: 10">
+            <td>{{visit.visitdate | date:'dd.MM.yyyy, EEEE'}}</td>
             <td>{{visit.user.name}}</td>
             <td>{{visit.store.name}}</td>
             <td>{{visit.days.since}}</td>
