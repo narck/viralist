@@ -5,32 +5,74 @@
             $scope.visits = data;
         });
 
-        $scope.order = 'visitdate';
-
-        $scope.click = function (order){
-            $scope.order = order;
-            console.log(order);
-        }
+        $scope.order = '-visitdate';
 
         $scope.searchText = '';
     }
+
+
+
+
+    function ThresholdController($scope, $http) {
+        $http.get('stores.json').success( function(data, status, headers, config) {
+            $scope.stores = data;
+        });
+
+        // list only stores nearing threshold
+        $scope.thresholdNotTooLow = function(item) {
+            return (item.last.visited > item.threshold.value / 2);
+        };
+        $scope.order = '-last.visited';
+
+
+    }
 </script>
+<h1>Dashboard</h1>
 
-<h2>Visits</h2>
 
-<div ng-app ng-controller="VisitsController">
-  search:  <input ng-model="searchText">
 
-  <table class="table table-hover">
-    <thead>
-    <th> <a ng-click="click('visitdate')">name</a> </th>
-    
-    </thead>
-    <tr ng-repeat="visit in visits| orderBy:order | filter:searchText">
-    	<td>{{visit.visitdate}}</td>
-    	<td>{{visit.user.name}}</td>
-    	<td>{{visit.store.name}}</td>
-    </tr>
-  </table>
+<div class="row" data-ng-app="">
+    <div class="col-md-6">
+    <h2>Latest visits</h2>
 
+    <div ng-controller="VisitsController">
+
+      <table class="table table-hover" style="">
+        <thead>
+        <th> date </th>
+        <th> user </th>
+        <th> store </th>
+        <th> days since visited </th>
+        
+        </thead>
+        <tr ng-repeat="visit in visits| orderBy:order | filter:searchText">
+            <td>{{visit.visitdate}}</td>
+            <td>{{visit.user.name}}</td>
+            <td>{{visit.store.name}}</td>
+            <td>{{visit.days.since}}</td>
+
+
+        </tr>
+      </table>
+
+    </div>
+</div>
+<div class="col-md-6">
+    <h2>Warnings</h2>
+
+    <div ng-controller="ThresholdController">
+
+      <table class="table table-hover">
+        <thead>
+
+        <th>&nbsp;</th>        
+        </thead>
+        <tr ng-repeat="store in stores| orderBy:order | filter:thresholdNotTooLow ">
+            <td ng-class="{strike: deleted, bold: store.last.visited > store.threshold.value / 2, red: store.threshold.exceeded}">{{store.company.name + ' ' +  store.name}} has not been visited in 
+                {{ store.last.visited }} days  </td>
+
+        </tr>
+      </table>
+
+    </div>
 </div>

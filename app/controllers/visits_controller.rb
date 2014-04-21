@@ -9,9 +9,8 @@ class VisitsController < ApplicationController
     order = params[:order] || 'visitdate'
 
     case order
-      when 'store' then @visits.sort_by!{ |v| v.store.name }
-      when 'visitdate' then @visits.sort_by!{ |v| v.user.realname}
-      #when 'user' then @visits.sort_by!{ |b| b.user.name }
+      when 'visitdate' then @visits.sort_by!{ |v| v.visitdate }
+
     end
   
   end
@@ -24,6 +23,7 @@ class VisitsController < ApplicationController
 
   # GET /visits/new
   def new
+    @users = User.all
     @stores = Store.all
     @visit = Visit.new
   end
@@ -87,3 +87,4 @@ class VisitsController < ApplicationController
       params.require(:visit).permit(:visitdate, :note, :user_id, :store_id)
     end
 end
+

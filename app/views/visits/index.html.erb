@@ -16,7 +16,7 @@
   <tbody>
     <% @visits.each do |visit| %>
       <tr>
-        <td><%= visit.visitdate %></td>
+        <td><%= visit.visitdate.strftime("%d.%m %Y")     %></td>
         
         <td><%= visit.user.to_s %></td>
         <td><%= visit.store.name %></td>

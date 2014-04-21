@@ -21,6 +21,10 @@ class StoresController < ApplicationController
 
   # GET /stores/1/edit
   def edit
+    
+    @contacts = Contact.all
+    @companies = Company.all
+    @store = Store.new
   end
 
   # POST /stores

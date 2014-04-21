@@ -2,7 +2,7 @@
 
 <p>
   <strong>Visitation date:</strong>
-  days ago
+  <%= @visit.visitdate %>, <%= "#{@visit.days_since} " "#{"day".pluralize(@visit.days_since)}" "#{" ago"}"%>
 </p>
 
 

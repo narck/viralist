@@ -1,4 +1,7 @@
 class Company < ActiveRecord::Base
-	has_many :contacts
+	
+	belongs_to :contact
 	has_many :stores
+	has_many :contacts, through: :stores
+
 end

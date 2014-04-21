@@ -20,10 +20,8 @@
     <%= f.text_area :note %>
   </div>
   <div class="field">
-
-    
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+    <%= f.label :user %><br>
+    <%= f.select :user_id, options_from_collection_for_select(@users, :id, :to_s, selected: current_user.id) %>
   </div>
   <div class="field">
     <%= f.label :store %><br>

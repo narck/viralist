@@ -12,16 +12,28 @@
   <% end %>
 
   <div class="field">
+
+    <%= f.label :company %><br>
+    <%= f.select :company_id, options_from_collection_for_select(@companies, :id, :name, selected: @store.id) %><br><br>
     <%= f.label :name %><br>
     <%= f.text_field :name %>
+
   </div>
   <div class="field">
-    <%= f.label :company %><br>
-    <%= f.select :company_id, options_from_collection_for_select(@companies, :id, :name, selected: @store.id) %>
-  </div>
-  <div class="field">
-    <%= f.label :contact %><br>
+    <%= f.label "Primary contact" %><br>
     <%= f.select :contact_id, options_from_collection_for_select(@contacts, :id, :to_s, selected: @store.id) %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :zip %><br>
+    <%= f.text_field :zip %>
   </div>
   <div class="actions">
     <%= f.submit %>

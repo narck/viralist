@@ -8,7 +8,10 @@
 <p>
   <strong>Contact:</strong>
   <%= @company.contact_id %>
+  <%= @company.contacts %>
 </p>
+
+
 
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>
