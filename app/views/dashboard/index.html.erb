@@ -39,16 +39,16 @@
 
       <table class="table table-hover">
         <thead>
-        <th> date </th>
-        <th> user </th>
-        <th> store </th>
-        <th> days since visited </th>
+        <th> Date </th>
+        <th> Store </th>
+        <th> Visitor </th>
+        <th> Days since </th>
         
         </thead>
         <tr ng-repeat="visit in visits| orderBy:order | filter:searchText | limitTo: 10">
-            <td>{{visit.visitdate | date:'dd.MM.yyyy, EEEE'}}</td>
-            <td>{{visit.user.name}}</td>
+            <td><p class="text-muted">{{visit.visitdate | date:'dd.MM.yyyy, EEEE'}}</p></td>
             <td>{{visit.store.name}}</td>
+            <td>{{visit.user.name}}</td>
             <td>{{visit.days.since}}</td>
 
 
@@ -58,7 +58,7 @@
     </div>
 </div>
 <div class="col-md-6">
-    <h2>Warnings</h2>
+    <h2>Upcoming</h2>
 
     <div ng-controller="ThresholdController">
 
@@ -68,8 +68,12 @@
         <th>&nbsp;</th>        
         </thead>
         <tr ng-repeat="store in stores| orderBy:order | filter:thresholdNotTooLow ">
-            <td ng-class="{strike: deleted, bold: store.last.visited > store.threshold.value / 2, red: store.threshold.exceeded}">{{store.company.name + ' ' +  store.name}} has not been visited in 
-                {{ store.last.visited }} days  </td>
+            <td ng-class="{strike: deleted, bold: store.last.visited > store.threshold.value / 2, red: store.threshold.exceeded}">
+                <p ng-class="{
+                    text-warning: store.last.visited > store.threshold.value / 2,
+                    text-danger: store.threshold.exceeded}">
+                    {{store.company.name + ' ' +  store.name}} has not been visited in {{ store.last.visited }} days  
+                </p></td>
 
         </tr>
       </table>

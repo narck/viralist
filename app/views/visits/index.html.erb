@@ -3,10 +3,11 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>Visitdate</th>
+      <th>Date</th>
       
-      <th>User</th>
+      
       <th>Store</th>
+      <th>Visitor</th>
       <th></th>
       <th></th>
       <th></th>
@@ -18,8 +19,9 @@
       <tr>
         <td><%= visit.visitdate.strftime("%d.%m.%Y, %A")     %></td>
         
+        
+        <td><%= visit.store.to_s %></td>
         <td><%= visit.user.to_s %></td>
-        <td><%= visit.store.name %></td>
         <td><%= link_to 'Show', visit %></td>
         <td><%= link_to 'Edit', edit_visit_path(visit) %></td>
         <td><%= link_to 'Destroy', visit, method: :delete, data: { confirm: 'Are you sure?' } %></td>

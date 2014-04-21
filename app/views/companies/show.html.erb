@@ -6,11 +6,16 @@
 </p>
 
 <p>
-  <strong>Contact:</strong>
-  <%= @company.contact_id %>
-  <%= @company.contacts %>
+  <strong>Primary contact:</strong>
+  <%= @company.contact %>
 </p>
 
+<strong>All contacts</strong>
+<ul class="list-group" style="width:20%">
+<% @company.contacts.each do |contact| %>
+	<li class="list-group-item"><%= link_to contact, contact_path(contact.id) %></li>
+<% end %>
+</ul>
 
 
 <%= link_to 'Edit', edit_company_path(@company) %> |

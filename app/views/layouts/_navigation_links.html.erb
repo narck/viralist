@@ -5,8 +5,15 @@
 <li><%= link_to "stores", stores_path %></li>
 <li><%= link_to "users", users_path %></li>
 
+<!--separator-->
+<li style="
+            display:inline-block;
+            padding: 10px;
+            width: 114px;
+            margin: 0;">&nbsp;</li>
+
 <% if not current_user.nil?  %>
-	<li><%= link_to current_user.username, login_path %></li>
+	<li><%= link_to current_user.realname, user_path(current_user) %></li>
 	<li><%= link_to "logout", logout_path, method: :delete %></li>
 <% else %>
 	<li><%= link_to "login", login_path %></li>

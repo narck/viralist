@@ -11,13 +11,13 @@
 </p>
 <p><strong>Last visited:</strong>
 	<%= @store.visits.empty? ? "No visitations yet" : " #{@store.last_visited} #{"day".pluralize(@store.last_visited)} ago"%>
-	
-	
+
 </p>
 <p>
-  <strong>Contact:</strong>
+  <strong>Primary contact:</strong>
   <%= @store.contact_id %>
 </p>
+<%= @store.contacts %>
 
 <%= link_to 'Edit', edit_store_path(@store) %> |
 <%= link_to 'Back', stores_path %>
