@@ -5,7 +5,7 @@ class Store < ActiveRecord::Base
 
 
 	def last_visited
-		visits.last.days_since_last
+		visits.where(store_id: id).order(:visitdate).reverse_order.first.days_since
 	end
 
 

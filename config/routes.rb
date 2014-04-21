@@ -1,6 +1,11 @@
 Viralist::Application.routes.draw do
   
   root 'visits#index'
+  resources :sessions, :only => [:new, :create, :destroy]
+  get 'login', to: 'sessions#new' 
+  delete 'logout', to: 'sessions#destroy'
+  get 'signup', to: 'users#new'
+  
   resources :users
 
   resources :contacts

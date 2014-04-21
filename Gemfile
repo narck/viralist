@@ -7,6 +7,7 @@ group :development do
 end
 
 gem 'whenever', :require => false
+gem 'bcrypt-ruby', '~> 3.1.2'
 
 group :test do
   gem 'rspec-rails', '~> 2.14.1'

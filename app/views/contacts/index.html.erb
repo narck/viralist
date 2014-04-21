@@ -1,10 +1,9 @@
 <h1>Listing contacts</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Fname</th>
-      <th>Lname</th>
+      <th>Name</th>
       <th>Phone</th>
       <th>Email</th>
       <th>Company</th>
@@ -17,8 +16,7 @@
   <tbody>
     <% @contacts.each do |contact| %>
       <tr>
-        <td><%= contact.fname %></td>
-        <td><%= contact.lname %></td>
+        <td><%= contact.to_s %></td>
         <td><%= contact.phone %></td>
         <td><%= contact.email %></td>
         <td><%= contact.company_id %></td>
