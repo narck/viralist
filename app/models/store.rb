@@ -20,7 +20,7 @@ class Store < ActiveRecord::Base
 	end
 
 	def latest_visitor
-	
+		#
 	end
 
 	def threshold_exceeded
