@@ -14,44 +14,37 @@
 
 
 
+
 <div class="row" data-ng-app="">
     <div class="col-md-6">
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @store.to_s %>
+  <h3><%= "#{@store}, " "#{@store.company}"  %></h3>
 </p>
-
+<br>
 <p>
-  <strong>Company:</strong>
-  <%= @store.company %>
-</p>
-<p>
-  <strong>Address:</strong>
-  <%= @store.address %>
+  <h4>Address:</h4>
+  <%= @store.full_street_address %>
 </p>
 <p>
-  <strong>City:</strong>
-  <%= @store.city %>
+  <h4>Threshold:</h4>
+  <%= @store.threshold %>
 </p>
 <p>
-  <strong>Zip:</strong>
-  <%= @store.zip %>
-</p>
-<p><strong>Last visited:</strong>
+  <h4>Last visited:</h4>
   <%= @store.visits.empty? ? "No visitations yet" : " #{@store.last_visited} #{"day".pluralize(@store.last_visited)} ago"%>
 
 </p>
 <p>
-  <strong><%= @store.contact.nil? ? "No primary contact set" : "Primary contact" %></strong>
+  <h4><%= @store.contact.nil? ? "No primary contact set" : "Primary contact" %></h4>
   <%= @store.contact %>
 </p>
 
 <% if @store.contacts.empty? %>
-  <strong>No contacts yet!</strong><br><br>
+  <h4>No contacts yet!</h4><br><br>
 <% else %>
-  <strong>All contacts</strong>
+  <h4>All contacts</h4>
 <ul class="list-group" style="width:20%">
   <% @store.contacts.each do |contact| %>
   <li class="list-group-item"><%= link_to contact, contact_path(contact.id) %></li>
@@ -60,16 +53,14 @@
 
 </ul>
 
-<%= link_to 'Edit', edit_store_path(@store) %> |
-<%= link_to 'Back', stores_path %>
 
+<%= link_to 'Edit', edit_store_path(@store), class: "btn btn-default" %>
 
-    </div>
-    <div class="col-md-6">
-
-<div style='width: 100%; height:550px'>
-  <div id="geolocation" style='width: 100%; height: 600px;'></div>
 </div>
+    <div class="col-md-6">
+      <div style='width: 102%; height:100%'>
+        <div id="geolocation" style='width: 100%; height: 620px;'></div>
+      </div>
     </div>
   </div>
 
@@ -85,8 +76,9 @@ handler.buildMap({ internal: {id: 'geolocation'} }, function(){
 
 function displayOnMap(position){
   var marker = handler.addMarker({
-    lat: -34.397,
-    lng: 150.644
+    lat: <%= @store.latitude %>,
+    lng: <%= @store.longitude %>
   });
   handler.map.centerOn(marker);
+  handler.getMap().setZoom(14);
 };</script>

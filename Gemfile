@@ -7,6 +7,7 @@ group :development do
 end
 
 gem 'gmaps4rails'
+gem "geocoder"
 #gem 'underscore-rails'
 
 gem 'whenever', :require => false

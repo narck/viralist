@@ -1,13 +1,16 @@
 class Store < ActiveRecord::Base
-	has_many :visits
+	has_many :visits, dependent: :destroy
 	belongs_to :contact
 	belongs_to :company
 	has_many :contacts
+	
 
 	validates_uniqueness_of :name, :scope => :company_id, message: "already exists within company!"
 	validates :name, :city, :address, :zip, presence: true
 	validates :zip, :numericality => {:only_integer => true}, length: { in: 00000..99999 } #only finnish zips
 
+	geocoded_by :full_street_address   # can also be an IP address
+	after_validation :geocode          # auto-fetch coordinates
 
 
 	def last_visited
@@ -29,5 +32,9 @@ class Store < ActiveRecord::Base
 
 	def to_s
 		"#{company.name} #{name}"
+	end
+
+	def full_street_address
+		"#{address}, #{zip} #{city}"
 	end
 end

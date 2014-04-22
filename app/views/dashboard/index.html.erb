@@ -46,9 +46,9 @@
         
         </thead>
         <tr ng-repeat="visit in visits| orderBy:order | filter:searchText | limitTo: 10">
-            <td><p class="text-muted">{{visit.visitdate | date:'dd.MM.yyyy, EEEE'}}</p></td>
-            <td>{{visit.store.name}}</td>
-            <td>{{visit.user.name}}</td>
+            <td><a ng-href="/visits/{{visit.id}}">{{visit.visitdate | date:'dd.MM.yyyy, EEEE'}}</a></td>
+            <td><a ng-href="/stores/{{visit.store.id}}">{{visit.store.name}}</a></td>
+            <td><a ng-href="/users/{{visit.user.id}}">{{visit.user.name}}</a></td>
             <td>{{visit.days.since}}</td>
 
 

@@ -1,12 +1,12 @@
 <h1>Listing stores</h1>
 
-<table class="table">
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Name</th>
+      <th>Address</th>
       <th>Contact</th>
-      <th></th>
-      <th></th>
+      <th>Threshold</th>
       <th></th>
     </tr>
   </thead>
@@ -14,11 +14,12 @@
   <tbody>
     <% @stores.each do |store| %>
       <tr>
-        <td><%= store.to_s %></td>
-        <td><%= store.contact.to_s %></td>
-        <td><%= link_to 'Show', store %></td>
-        <td><%= link_to 'Edit', edit_store_path(store) %></td>
-        <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to store, store%></td>
+        <td><%= store.full_street_address %></td>
+        <td><%= store.contact %></td>
+        <td><%= store.threshold %></td>
+        <td><%= link_to 'Edit', edit_store_path(store), class: "btn btn-xs btn-primary" %></td>
+        <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Store', new_store_path %>
+<%= link_to 'New Store', new_store_path, class: "btn btn-success"%>
