@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :visitdate %><br>
-    <%= f.date_select :visitdate %>
+    <%= f.date_select :visitdate, :end_year => Time.now.year, :order => [:day, :month, :year] %>
   </div>
   <div class="field">
     <%= f.label :note %><br>
@@ -21,12 +21,11 @@
   </div>
   <div class="field">
     <%= f.label :user %><br>
-    <%= @visit.user %>
-
+    <%= f.select :user_id, options_from_collection_for_select(@users, :id, :to_s, selected: current_user.id)%>
   </div>
   <div class="field">
     <%= f.label :store %><br>
-    <%= @visit.store %>    
+    <%= f.select :store_id, options_from_collection_for_select(@stores, :id, :to_s, selected: 0)%>
   </div>
   <div class="actions">
     <%= f.submit %>
