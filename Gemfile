@@ -6,6 +6,8 @@ group :development do
   gem 'rails_layout'
 end
 
+gem 'stripe_event'
+
 gem 'whenever', :require => false
 gem 'bcrypt-ruby', '~> 3.1.2'
 
