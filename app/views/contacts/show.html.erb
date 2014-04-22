@@ -22,7 +22,12 @@
 
 <p>
   <strong>Company:</strong>
-  <%= @contact.company_id %>
+  <%= @contact.company %>
+</p>
+
+<p>
+  <strong>Store:</strong>
+  <%= @contact.store %>
 </p>
 
 <%= link_to 'Edit', edit_contact_path(@contact) %> |

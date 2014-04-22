@@ -1,7 +1,12 @@
 class Company < ActiveRecord::Base
 	
 	belongs_to :contact
+	has_many :contacts
 	has_many :stores
-	has_many :contacts, through: :stores
+	
+
+	def to_s
+		"#{name}"
+	end
 
 end

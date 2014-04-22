@@ -21,10 +21,6 @@ class StoresController < ApplicationController
 
   # GET /stores/1/edit
   def edit
-    
-    @contacts = Contact.all
-    @companies = Company.all
-    @store = Store.new
   end
 
   # POST /stores
@@ -37,6 +33,8 @@ class StoresController < ApplicationController
         format.html { redirect_to @store, notice: 'Store was successfully created.' }
         format.json { render action: 'show', status: :created, location: @store }
       else
+        @contacts = Contact.all
+        @companies = Company.all
         format.html { render action: 'new' }
         format.json { render json: @store.errors, status: :unprocessable_entity }
       end
@@ -75,6 +73,6 @@ class StoresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def store_params
-      params.require(:store).permit(:name, :company_id, :contact_id)
+      params.require(:store).permit(:name, :company_id, :address, :zip, :city, :contact_id, :threshold)
     end
 end

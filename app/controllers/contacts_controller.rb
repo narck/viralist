@@ -10,11 +10,14 @@ class ContactsController < ApplicationController
   # GET /contacts/1
   # GET /contacts/1.json
   def show
+
   end
 
   # GET /contacts/new
   def new
     @contact = Contact.new
+    @companies = Company.all
+    @stores = Store.all
   end
 
   # GET /contacts/1/edit
@@ -31,6 +34,8 @@ class ContactsController < ApplicationController
         format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
         format.json { render action: 'show', status: :created, location: @contact }
       else
+        @companies = Company.all
+        @stores = Store.all
         format.html { render action: 'new' }
         format.json { render json: @contact.errors, status: :unprocessable_entity }
       end
@@ -69,6 +74,6 @@ class ContactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact).permit(:fname, :lname, :phone, :email, :company_id)
+      params.require(:contact).permit(:fname, :lname, :phone, :email, :company_id, :store_id)
     end
 end

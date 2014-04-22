@@ -12,17 +12,26 @@
   <% end %>
 
   <div class="field">
+    <% if @store.new_record? %>
+      <%= f.label :company %><br>
+      <%= f.select :company_id, options_from_collection_for_select(@companies, :id, :name, selected: @store.id) %><br><br>
+    <% else %>
 
-    <%= f.label :company %><br>
-    <%= f.select :company_id, options_from_collection_for_select(@companies, :id, :name, selected: @store.id) %><br><br>
+      <%= f.label :company %><br>
+      <%= @store.company  %><br><br>
+    <% end %>
+
+
     <%= f.label :name %><br>
     <%= f.text_field :name %>
-
   </div>
+
+  <% if not @store.new_record?%>
   <div class="field">
     <%= f.label "Primary contact" %><br>
-    <%= f.select :contact_id, options_from_collection_for_select(@contacts, :id, :to_s, selected: @store.id) %>
+    <%= f.select :contact_id, options_from_collection_for_select(@store.contacts, :id, :to_s, selected: @store.id) %>
   </div>
+  <% end %>
   <div class="field">
     <%= f.label :address %><br>
     <%= f.text_field :address %>
@@ -34,6 +43,12 @@
   <div class="field">
     <%= f.label :zip %><br>
     <%= f.text_field :zip %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :threshold %><br>
+    <%= f.text_field :threshold, :value => @store.new_record? ? 30 : @store.threshold %>
   </div>
   <div class="actions">
     <%= f.submit %>

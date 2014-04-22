@@ -1,3 +1,4 @@
+
 <%= form_for(@contact) do |f| %>
   <% if @contact.errors.any? %>
     <div id="error_explanation">
@@ -12,11 +13,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :fname %><br>
+    <%= f.label "First name" %><br>
     <%= f.text_field :fname %>
   </div>
   <div class="field">
-    <%= f.label :lname %><br>
+    <%= f.label "Last name" %><br>
     <%= f.text_field :lname %>
   </div>
   <div class="field">
@@ -27,11 +28,21 @@
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
+  <% if @contact.new_record? %>
   <div class="field">
     <%= f.label :company_id %><br>
-    <%= f.number_field :company_id %>
+    <%= f.select :company_id, options_from_collection_for_select(@companies, :id, :to_s, selected: 0) %>
   </div>
+<% end %>
+
+<% if not @contact.new_record? %>
+  <div class="field">
+    <%= f.label :store_id %><br>
+    <%= f.select :store_id, options_from_collection_for_select(@contact.company.stores, :id, :to_s, selected: 0) %>
+  </div>
+<% end %>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+

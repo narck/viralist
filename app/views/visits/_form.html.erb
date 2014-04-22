@@ -21,11 +21,12 @@
   </div>
   <div class="field">
     <%= f.label :user %><br>
-    <%= f.select :user_id, options_from_collection_for_select(@users, :id, :to_s, selected: current_user.id) %>
+    <%= @visit.user %>
+
   </div>
   <div class="field">
     <%= f.label :store %><br>
-    <%= f.select :store_id, options_from_collection_for_select(@stores, :id, :to_s, selected: @visit.id) %>
+    <%= @visit.store %>    
   </div>
   <div class="actions">
     <%= f.submit %>

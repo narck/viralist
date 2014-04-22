@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   validates :realname, uniqueness: true, length: { in: 3..20 }
   validates :password, length: { minimum: 3 }, format: { with: /.*(\d.*[A-Z]|[A-Z].*\d).*/,
   												message: "should contain a uppercase letter and a number" }
+  validates :email, format: { with: /\A\S+@.+\.\S+\z/, message: "doesn't seem to be a valid address" }
   has_many :visits
 
 

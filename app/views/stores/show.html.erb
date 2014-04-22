@@ -7,17 +7,29 @@
 
 <p>
   <strong>Company:</strong>
-  <%= @store.company_id %>
+  <%= @store.company %>
 </p>
 <p><strong>Last visited:</strong>
 	<%= @store.visits.empty? ? "No visitations yet" : " #{@store.last_visited} #{"day".pluralize(@store.last_visited)} ago"%>
 
 </p>
 <p>
-  <strong>Primary contact:</strong>
-  <%= @store.contact_id %>
+  <strong><%= @store.contact.nil? ? "No primary contact set" : "Primary contact" %></strong>
+  <%= @store.contact %>
 </p>
-<%= @store.contacts %>
+
+<% if @store.contacts.empty? %>
+	<strong>No contacts yet!</strong><br><br>
+<% else %>
+	<strong>All contacts</strong>
+<ul class="list-group" style="width:20%">
+	<% @store.contacts.each do |contact| %>
+	<li class="list-group-item"><%= link_to contact, contact_path(contact.id) %></li>
+<% end %>
+<% end %>
+</ul>
+
+
 
 <%= link_to 'Edit', edit_store_path(@store) %> |
 <%= link_to 'Back', stores_path %>

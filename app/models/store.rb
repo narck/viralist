@@ -4,7 +4,10 @@ class Store < ActiveRecord::Base
 	has_many :contacts
 	belongs_to :company
 
-	validates_uniqueness_of :name, :scope => :company_id
+	validates_uniqueness_of :name, :scope => :company_id, message: "already exists within company!"
+	validates :name, :city, :address, :zip, presence: true
+	validates :zip, :numericality => {:only_integer => true}, length: { in: 00000..99999 } #only finnish zips
+
 
 
 	def last_visited
