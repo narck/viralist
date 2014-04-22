@@ -1,5 +1,6 @@
 class StoresController < ApplicationController
   before_action :set_store, only: [:show, :edit, :update, :destroy]
+  before_filter :login_check
 
   # GET /stores
   # GET /stores.json

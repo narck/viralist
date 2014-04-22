@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   #  redirect_to :back, notice:'admin privileges not detected' if not current_user.admin?
   #end
 
-   def signin_check 
-    redirect_to signin_path, notice:'Please log in!' if current_user.nil?
+   def login_check 
+    redirect_to login_path, notice:'Please log in!' if current_user.nil?
   end
 end
