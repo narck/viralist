@@ -8,20 +8,12 @@ FactoryGirl.define do
   end
 
   factory :company do
+  	id "1"
   	name "Best LLC"
   end
 
   factory :visit do 
   	user :user
-
   end
-
-  factory :store do 
-  	name "Kauppa"
-  	city "Helsinki"
-  	address "Katu 1"
-  	zip "01242"
-
-  end
-
+  
 end

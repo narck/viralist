@@ -1,8 +1,8 @@
 class Store < ActiveRecord::Base
 	has_many :visits
 	belongs_to :contact
-	has_many :contacts
 	belongs_to :company
+	has_many :contacts
 
 	validates_uniqueness_of :name, :scope => :company_id, message: "already exists within company!"
 	validates :name, :city, :address, :zip, presence: true
