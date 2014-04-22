@@ -8,3 +8,4 @@ Notable features:
 * Visitation tracking
 * AngularJS dashboard
 * Mailer
+* Google Maps integration
