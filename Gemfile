@@ -6,11 +6,13 @@ group :development do
   gem 'rails_layout'
 end
 
+
+gem 'rufus-scheduler'
 gem 'gmaps4rails'
-gem "geocoder"
+gem 'geocoder'
 #gem 'underscore-rails'
 
-gem 'whenever', :require => false
+#gem 'whenever', :require => false
 gem 'bcrypt-ruby', '~> 3.1.2'
 
 group :test do

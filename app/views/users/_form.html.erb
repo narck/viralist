@@ -39,6 +39,10 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation  %>
   </div>
+  <div class="field">
+    <%= f.label "Get Email" %> <br />
+    <%= f.check_box :subscribed %> <br />
+</div>
 
   <div class="actions">
     <%= f.submit %>
