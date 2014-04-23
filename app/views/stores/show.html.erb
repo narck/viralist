@@ -37,8 +37,15 @@
 
 </p>
 <p>
-  <h4><%= @store.contact.nil? ? "No primary contact set" : "Primary contact" %></h4>
+<% if @store.contact.nil? %>
+  <h4>No primary contact set</h4>
+  <% else %>
   <%= link_to @store.contact, @store.contact%>
+<% end %>
+
+  
+   
+   
 </p>
 
 <% if @store.contacts.empty? %>

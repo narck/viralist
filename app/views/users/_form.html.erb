@@ -16,20 +16,21 @@
         <%= f.label :username %><br />
         <%= f.text_field :username %>
     </div>
+    <% end %>
     <div class="field">
         <%= f.label :realname %><br />
         <%= f.text_field :realname %>
     </div>
-
     <div class="field">
         <%= f.label :email %><br />
         <%= f.text_field :email %>
     </div>
-  <% end %>
+  
   <div class="field">
     <% if @user.new_record? %>
         <%= f.label :password %>
     <% else %>
+      <strong>Change password (leave blank if you don't want to change)</strong><br>
         <%= f.label 'New password' %>
     <% end %>
     <br />
@@ -40,7 +41,7 @@
     <%= f.password_field :password_confirmation  %>
   </div>
   <div class="field">
-    <%= f.label "Get Email" %> <br />
+    <%= f.label "Get e-mail notifications" %> <br />
     <%= f.check_box :subscribed %> <br />
 </div>
 

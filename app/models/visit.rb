@@ -10,4 +10,8 @@ class Visit < ActiveRecord::Base
 		DateTime.now.mjd - visitdate.mjd
 	end
 
+	def to_s
+		"#{visitdate}, #{store}"
+	end
+
 end

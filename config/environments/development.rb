@@ -34,7 +34,7 @@ Viralist::Application.configure do
       :domain               => ENV['MDOMAIN'],
       :user_name            => ENV['MUSERNAME'],
       :password             => ENV['MPASSWORD'],
-      :authentication       => 'login',
+      :authentication       => 'plain',
       :enable_starttls_auto => true
   }
 

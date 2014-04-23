@@ -10,7 +10,8 @@ class InfoMailer < ActionMailer::Base
   end
 
   def inform_threshold(user)
-  	mail(to: @user, subject: 'Threshold notice')
+    @user = user
+    mail(to: @user.email, subject: 'Threshold notice')
   end
 
 
