@@ -21,5 +21,6 @@
 
 
 every 1.minutes do
-	#runner 'InfoMailer.check'
+	#runner 'InfoMailer.inform_threshold(User.last)'
+	#runner 'InfoMailer.inform_threshold'
 end

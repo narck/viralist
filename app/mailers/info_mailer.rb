@@ -9,8 +9,8 @@ class InfoMailer < ActionMailer::Base
     mail(to: @user.email, subject: 'Welcome to viralist!')
   end
 
-  def inform_threshold
-  	mail(to: @user.email, subject: 'Threshold notice')
+  def inform_threshold(user)
+  	mail(to: @user, subject: 'Threshold notice')
   end
 
 
