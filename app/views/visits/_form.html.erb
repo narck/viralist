@@ -19,14 +19,17 @@
     <%= f.label :note %><br>
     <%= f.text_area :note %>
   </div>
+  <% if @visit.new_record? %>
   <div class="field">
     <%= f.label :user %><br>
     <%= f.select :user_id, options_from_collection_for_select(@users, :id, :to_s, selected: current_user.id)%>
   </div>
+  
   <div class="field">
     <%= f.label :store %><br>
     <%= f.select :store_id, options_from_collection_for_select(@stores, :id, :to_s, selected: 0)%>
   </div>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

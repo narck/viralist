@@ -21,8 +21,8 @@
         <td><%= contact.email %></td>
         <td><%= contact.company %></td>
         <td><%= link_to 'Show', contact %></td>
-        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_contact_path(contact), class: "btn btn-xs btn-primary" %></td>
+        <td><%= link_to 'Destroy', contact, class: "btn btn-xs btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Contact', new_contact_path %>
+<%= link_to 'New Contact', new_contact_path, class: "btn btn-md btn-success"  %>

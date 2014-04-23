@@ -23,8 +23,8 @@
         <td><%= visit.store.to_s %></td>
         <td><%= visit.user.to_s %></td>
         <td><%= link_to 'Show', visit %></td>
-        <td><%= link_to 'Edit', edit_visit_path(visit) %></td>
-        <td><%= link_to 'Destroy', visit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_visit_path(visit), class: "btn btn-xs btn-primary" %></td>
+        <td><%= link_to 'Destroy', visit, class: "btn btn-xs btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Visit', new_visit_path %>
+<%= link_to 'New Visit', new_visit_path, class: "btn btn-md btn-success"  %>
