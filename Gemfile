@@ -6,13 +6,19 @@ group :development do
   gem 'rails_layout'
 end
 
+gem 'therubyracer'
+# twitter bootstrap css & javascript toolkit
+gem 'twitter-bootswatch-rails', '~> 3.1.1'
+
+# twitter bootstrap helpers gem, e.g., alerts etc...
+gem 'twitter-bootswatch-rails-helpers'
+
+
 
 gem 'rufus-scheduler'
 gem 'gmaps4rails'
 gem 'geocoder'
-#gem 'underscore-rails'
 
-#gem 'whenever', :require => false
 gem 'bcrypt-ruby', '~> 3.1.2'
 
 group :test do
