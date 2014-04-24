@@ -1,12 +1,8 @@
 viralist [![Build Status](https://api.travis-ci.org/narck/viralist.png)](https://travis-ci.org/narck/viralist)
+[Documentation](https://github.com/narck/viralist/wiki/Documentation)
 ========
 
 **viralist** keeps track of your company visitations. It's a small ERP-type app to record where you've been having a visit, for situations where you would for example keep track when you have delivered some goods to a store and need to do it often within a schedule.
-
-## Data model
-![alt text](http://imgur.com/yvVxUqi.png "Model")
-
-
 
 Usage
 ========
@@ -14,7 +10,7 @@ Usage
 ## Running **viralist**
 You will need `rails 4` and preferrably `ruby 2.0.0p353` (both tested, newer versions should work just as well).
 
-After installing these, you can simply clone this repository with `git clone https://narck/viralist`.
+After installing these, you can simply clone this repository with `git clone https://github.com/narck/viralist`.
 Next run:
 
 ```shell
@@ -35,7 +31,7 @@ The app features an ActionMailer implementation to inform subscribed users of st
 ## Rufus
 The mailer works mainly with a rufus schedule, located in `app/config/initializers/task_scheduler.rb`
 
-Notable features:
+Notable features
 ========
 * Visitation tracking
 * AngularJS dashboard, visitation search
