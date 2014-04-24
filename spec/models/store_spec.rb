@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Store do
 	let(:company){ FactoryGirl.create(:company) }
 	let(:user){ FactoryGirl.create(:user)}
-	let(:store) { Store.create name:"Kamppi", id: "2", address:"Katu 1", zip:"11111", company_id: company.id, threshold: 15}
+	let(:store) { Store.create name:"Kamppi", id: "2", address:"Katu 1", zip:"11111", company_id: company.id, threshold: 15,latitude: 0.0, longitude: 0.0}
 	let(:contact) { Contact.create fname:"Budge", lname:"Hooks", company_id: company.id, store_id: store.id, email:"asd@com.com", phone:"1234567" }
 	
   

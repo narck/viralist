@@ -24,12 +24,7 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 group :test do
   gem 'rspec-rails', '~> 2.14.1'
   gem 'factory_girl_rails'
-  #gem 'capybara'
-  #gem 'launchy'
   #gem 'webmock'
-  #gem 'simplecov', require: false
-  #gem 'selenium-webdriver'
-  #gem 'database_cleaner', '< 1.1.0'
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

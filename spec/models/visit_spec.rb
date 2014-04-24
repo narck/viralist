@@ -1,8 +1,12 @@
 require 'spec_helper'
 
 describe Visit do
+
+
+
 	let(:company) { FactoryGirl.create(:company) }
     let(:store) { Store.create name:"Kamppi", id: "2", address:"Katu 1", zip:"11111", company_id: company.id, threshold: 15}
+
     let(:user){ FactoryGirl.create(:user) }
 
 	it "is correctly saved" do 
