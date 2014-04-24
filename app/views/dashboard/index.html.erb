@@ -15,7 +15,7 @@
 
         // list only stores nearing threshold
         $scope.thresholdNotTooLow = function(item) {
-            return (item.last.visited > item.threshold.value / 2);
+            return item.threshold.nearing;
         };
         $scope.order = '-last.visited';
 

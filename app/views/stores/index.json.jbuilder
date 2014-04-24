@@ -13,6 +13,7 @@ json.array!(@stores) do |store|
   json.threshold do
     json.value store.threshold
     json.exceeded store.threshold_exceeded
+    json.nearing store.nearing_threshold
   end
 end
 

@@ -7,7 +7,7 @@
       <th>Address</th>
       <th>Contact</th>
       <th>Threshold</th>
-      <th></th>
+      <th>Total visits</th>
     </tr>
   </thead>
 
@@ -18,6 +18,7 @@
         <td><%= store.full_street_address %></td>
         <td><%= store.contact %></td>
         <td><%= store.threshold %></td>
+        <td><%= store.visits.count %></td>
         <td><%= link_to 'Edit', edit_store_path(store), class: "btn btn-xs btn-primary" %></td>
         <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %></td>
       </tr>

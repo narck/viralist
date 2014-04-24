@@ -4,11 +4,19 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to example.com, <%= @user.realname %></h1>
+    <h1>Welcome to viralist, <%= @user.realname %></h1>
     <p>
-      You have successfully signed up to viralist,
+      You have been successfully signed up to viralist,
       your username is: <%= @user.username %>.<br>
+      <% if @user.subscribed? %>
+        You are currently receiving e-mail notifications from viralist.
+        You can change this any time by logging in and editing your account settings.
+      <% else %>
+        You are currently not receiving further e-mail notifications from viralist.
+        You can change this any time by logging in and editing your account settings.
+      <% end %> 
     </p>
     <p>Thanks for joining and have a great day!</p>
+    -Viralist Informer Service
   </body>
 </html>

@@ -4,7 +4,31 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    This is a test  
-    <%= @user.realname %>
+  	Hello <%= @user.realname %>,
+  	this is an automatic e-mail from the threshold notice service.<br><br>
+
+  	<% if @over_threshold.empty? %>
+  		<strong>Currently no stores are above the limit!</strong>
+  	<% else %>
+  		<strong>These stores are above threshold:<br></strong>
+  		<% for store in @over_threshold %>
+  		<%= store.to_s%>, has not been visited in <%= store.last_visited %> days<br>
+  		<% end %>
+  	<% end %><br>
+
+	<br>
+	<% if @nearing_threshold.empty? %>
+  		<strong>Currently no stores are nearing the visitation limit!</strong>
+  	<% else %>
+  		<strong>These stores should be visited soon:<br></strong>
+  		<% for store in @nearing_threshold %>
+  		<%= store.to_s%>, has not been visited in <%= store.last_visited %> days<br>
+  		<% end %>	
+  	<% end %><br><br>
+
+  	If you wish not to receive this message, disable your subscription.
+
+  	-Viralist Informer Service
+    
   </body>
 </html>

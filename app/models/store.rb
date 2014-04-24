@@ -22,12 +22,12 @@ class Store < ActiveRecord::Base
 		end
 	end
 
-	def latest_visitor
-		#
-	end
-
 	def threshold_exceeded
 		return last_visited > threshold
+	end
+
+	def nearing_threshold
+		return last_visited > threshold / 2
 	end
 
 	def to_s
