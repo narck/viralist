@@ -1,7 +1,7 @@
 viralist [![Build Status](https://api.travis-ci.org/narck/viralist.png)](https://travis-ci.org/narck/viralist)
 
 ========
-## [Documentation](https://github.com/narck/viralist/wiki/Documentation)
+[Documentation](https://github.com/narck/viralist/wiki/Documentation)
 
 **viralist** keeps track of your company visitations. It's a small ERP-type app to record where you've been having a visit, for situations where you would for example keep track when you have delivered some goods to a store and need to do it often within a schedule.
 
