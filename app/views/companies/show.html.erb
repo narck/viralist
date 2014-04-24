@@ -1,17 +1,24 @@
+
+
+
+
+
+
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @company.name %>
+  <h1><%= @company.name %></h1>
+  
 </p>
 
 <p>
-  <strong><%= @company.contact.nil? ? "No primary contact set" : "Primary contact" %></strong>
-  <%= @company.contact %>
+  <h3><%= @company.contact.nil? ? "No primary contact set" : "Primary contact" %></h3>
+  <%= link_to @company.contact.to_s, @company.contact %>
 </p>
 
 <% if @company.contacts.empty? %>
-	<strong>No contacts yet!</strong>
+	<strong>No contacts yet!</strong><br><br>
 <% else %>
 	<strong>All contacts</strong>
 <ul class="list-group" style="width:20%">
@@ -23,5 +30,4 @@
 </ul>
 
 
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
+<%= link_to 'Edit', edit_company_path(@company)  , class: "btn btn-default" %> 

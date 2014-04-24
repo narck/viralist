@@ -4,11 +4,9 @@
   <thead>
     <tr>
       <th>Date</th>
-      
-      
       <th>Store</th>
       <th>Visitor</th>
-      <th></th>
+      <th>Days since</th>
       <th></th>
       <th></th>
     </tr>
@@ -17,12 +15,10 @@
   <tbody>
     <% @visits.each do |visit| %>
       <tr>
-        <td><%= visit.visitdate.strftime("%d.%m.%Y, %A")     %></td>
-        
-        
-        <td><%= visit.store.to_s %></td>
-        <td><%= visit.user.to_s %></td>
-        <td><%= link_to 'Show', visit %></td>
+        <td><%= link_to visit.visitdate.strftime("%d.%m.%Y, %A"), visit%></td>
+        <td><%= link_to visit.store.to_s, visit.store %></td>
+        <td><%= link_to visit.user.to_s, visit.user %></td>
+        <td><%= visit.days_since %></td>
         <td><%= link_to 'Edit', edit_visit_path(visit), class: "btn btn-xs btn-primary" %></td>
         <td><%= link_to 'Destroy', visit, class: "btn btn-xs btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

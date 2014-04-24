@@ -1,0 +1,45 @@
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
+<script>
+    function VisitsController($scope, $http) {
+        $http.get('visits.json').success( function(data, status, headers, config) {
+            $scope.visits = data;
+        });
+
+        $scope.order = '-visitdate';
+
+        $scope.searchText = '';
+    }
+
+    </script>
+<h1>Searching visits</h1>
+
+	
+
+<div data-ng-app="" ng-controller="VisitsController">
+    
+    <input ng-model="searchText">
+
+    <div>
+
+      <table class="table table-hover">
+        <thead>
+        <th> Date </th>
+        <th> Store </th>
+        <th> Visitor </th>
+        <th> Days since </th>
+        
+        </thead>
+        <tr ng-repeat="visit in visits| orderBy:order | filter:searchText ">
+            <td><a ng-href="/visits/{{visit.id}}">{{visit.visitdate | date:'dd.MM.yyyy, EEEE'}}</a></td>
+            <td><a ng-href="/stores/{{visit.store.id}}">{{visit.store.name}}</a></td>
+            <td><a ng-href="/users/{{visit.user.id}}">{{visit.user.name}}</a></td>
+            <td>{{visit.days.since}}</td>
+
+        </tr>
+      </table>
+
+
+<%= link_to 'New Visit', new_visit_path, class: "btn btn-md btn-success"  %>
+
+
+  </div>

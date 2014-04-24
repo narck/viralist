@@ -16,11 +16,10 @@
   <tbody>
     <% @contacts.each do |contact| %>
       <tr>
-        <td><%= contact.to_s %></td>
+        <td><%= link_to contact.to_s, contact %></td>
         <td><%= contact.phone %></td>
         <td><%= contact.email %></td>
-        <td><%= contact.company %></td>
-        <td><%= link_to 'Show', contact %></td>
+        <td><%= link_to contact.company.to_s, contact.company %></td>
         <td><%= link_to 'Edit', edit_contact_path(contact), class: "btn btn-xs btn-primary" %></td>
         <td><%= link_to 'Destroy', contact, class: "btn btn-xs btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

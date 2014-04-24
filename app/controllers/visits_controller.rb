@@ -5,15 +5,10 @@ class VisitsController < ApplicationController
   # GET /visits
   # GET /visits.json
   def index
-    @visits = Visit.all
+    @visits = Visit.all(:order => "created_at DESC")
+  end
 
-    order = params[:order] || 'visitdate'
-
-    case order
-      when 'visitdate' then @visits.sort_by!{ |v| v.visitdate }
-
-    end
-  
+  def search 
   end
 
   # GET /visits/1

@@ -1,34 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Fname:</strong>
-  <%= @contact.fname %>
-</p>
+<h1> <%= @contact.to_s %></h1>
 
 <p>
-  <strong>Lname:</strong>
-  <%= @contact.lname %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
+  <h4>Phone:</h4>
   <%= @contact.phone %>
 </p>
 
 <p>
-  <strong>Email:</strong>
+  <h4>Email:</h4>
   <%= @contact.email %>
 </p>
 
 <p>
-  <strong>Company:</strong>
+  <h4>Company:</h4>
   <%= @contact.company %>
 </p>
 
 <p>
-  <strong>Store:</strong>
+
+  <% if @contact.store.nil? %>
+  <h4>No assigned to a store yet!</h4>
+  <% else %>
+  <h4>Store:</h4>
   <%= @contact.store %>
+  <% end %>
+  
 </p>
 
-<%= link_to 'Edit', edit_contact_path(@contact) %> |
-<%= link_to 'Back', contacts_path %>
+<%= link_to 'Edit', edit_contact_path(@contact)  , class: "btn btn-default" %>

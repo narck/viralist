@@ -6,12 +6,7 @@
         });
 
         $scope.order = '-visitdate';
-
-        $scope.searchText = '';
     }
-
-
-
 
     function ThresholdController($scope, $http) {
         $http.get('stores.json').success( function(data, status, headers, config) {

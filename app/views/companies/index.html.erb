@@ -4,8 +4,8 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Number of stores</th>
       <th>Contact</th>
-      <th></th>
       <th></th>
       <th></th>
     </tr>
@@ -15,7 +15,8 @@
     <% @companies.each do |company| %>
       <tr>
         <td><%= link_to company.name, company %></td>
-        <td><%= company.contact %></td>
+        <td><%= company.stores.count %></td>
+        <td><%= link_to company.contact.to_s, company.contact %></td>
         <td><%= link_to 'Edit', edit_company_path(company), class: "btn btn-xs btn-primary"%></td>
         <td><%= link_to 'Destroy', company, class: "btn btn-xs btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
