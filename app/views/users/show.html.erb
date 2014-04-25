@@ -28,7 +28,7 @@
 	<strong>User visits</strong>
 	<ul class="list-group" >
 	<% @user.visits.each do |visit| %>
-	<li class="list-group-item"><%=  link_to "#{visit.visitdate.strftime("%d.%m.%Y,")} #{visit.store}", visit  %></li>
+	<li class="list-group-item"><%=  link_to "#{visit.visitdate.strftime("%d.%m.%Y,")} #{visit.store}", visit, "data-no-turbolink" => true   %></li>
 	<% end %>
 <% end %>
 <br>

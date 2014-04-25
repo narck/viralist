@@ -41,11 +41,10 @@
         
         </thead>
         <tr ng-repeat="visit in visits| orderBy:order | filter:searchText | limitTo: 10">
-            <td><a ng-href="/visits/{{visit.id}}">{{visit.visitdate | date:'dd.MM.yyyy, EEEE'}}</a></td>
-            <td><a ng-href="/stores/{{visit.store.id}}">{{visit.store.name}}</a></td>
-            <td><a ng-href="/users/{{visit.user.id}}">{{visit.user.name}}</a></td>
+            <td><a ng-href="/visits/{{visit.id}}" data-no-turbolink>{{visit.visitdate | date:'dd.MM.yyyy, EEEE'}}</a></td>
+            <td><a ng-href="/stores/{{visit.store.id}}" data-no-turbolink>{{visit.store.name}}</a></td>
+            <td><a ng-href="/users/{{visit.user.id}}" data-no-turbolink>{{visit.user.name}}</a></td>
             <td>{{visit.days.since}}</td>
-<%="keks"%>
 
         </tr>
       </table>

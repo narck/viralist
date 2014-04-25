@@ -1,3 +1,6 @@
+<div class="row">
+	<div class="col-md-6">
+
 <p>
   <h1><%= @company.name %></h1>
   
@@ -22,3 +25,19 @@
 
 
 <%= link_to 'Edit', edit_company_path(@company)  , class: "btn btn-default" %> 
+
+
+	</div><br>
+	<div class="col-md-6">
+<% if @company.stores.empty? %>
+		<strong>No stores yet!</strong>
+<% else %>
+	<strong>Stores:</strong>
+	<ul class="list-group" >
+	<% @company.stores.each do |store| %>
+	<li class="list-group-item"><%=  link_to "#{store}", store, "data-no-turbolink" => true %></li>
+	<% end %>
+<% end %>
+<br>
+	</div>
+</div>

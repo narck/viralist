@@ -14,7 +14,7 @@
   <tbody>
     <% @stores.each do |store| %>
       <tr>
-        <td><%= link_to store, store%></td>
+        <td><%= link_to store, store, "data-no-turbolink" => true %></td>
         <td><%= store.full_street_address %></td>
         <td><%= store.contact %></td>
         <td><%= store.threshold %></td>

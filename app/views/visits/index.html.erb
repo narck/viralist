@@ -15,8 +15,8 @@
   <tbody>
     <% @visits.each do |visit| %>
       <tr>
-        <td><%= link_to visit.visitdate.strftime("%d.%m.%Y, %A"), visit%></td>
-        <td><%= link_to visit.store.to_s, visit.store %></td>
+        <td><%= link_to visit.visitdate.strftime("%d.%m.%Y, %A"), visit, "data-no-turbolink" => true %></td>
+        <td><%= link_to visit.store.to_s, visit.store, "data-no-turbolink" => true %></td>
         <td><%= link_to visit.user.to_s, visit.user %></td>
         <td><%= visit.days_since %></td>
         <td><%= link_to 'Edit', edit_visit_path(visit), class: "btn btn-xs btn-primary" %></td>
